@@ -1909,10 +1909,11 @@ const App = () => {
                     <Phone className="text-violet-400" size={20} /> Founder Direct Line
                   </h3>
                   <div className="space-y-6">
+                    <ContactRow icon={<Globe size={22} />} label="Website" value="www.atlasintellitek.com" link="https://www.atlasintellitek.com" />
                     <ContactRow icon={<Mail size={22} />} label="Email" value="admin@atlasintellitek.com" link="mailto:admin@atlasintellitek.com" />
                     <ContactRow icon={<Phone size={22} />} label="Phone" value="+1 (614) 634-2560" />
-                    <ContactRow icon={<Globe size={22} />} label="Headquarters" value="Tempe, AZ (Relocating to SF)" />
-                    <ContactRow icon={<Linkedin size={22} />} label="LinkedIn" value="linkedin.com/in/ackshaya" link="https://www.linkedin.com/in/ackshaya" />
+                    <ContactRow icon={<Building2 size={22} />} label="Headquarters" value="Tempe, AZ (Relocating to SF)" />
+                    <ContactRow icon={<Linkedin size={22} />} label="LinkedIn" value="Atlas IntelliTek" link="https://www.linkedin.com/company/atlasintellitek/" />
                   </div>
                </div>
 
