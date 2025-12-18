@@ -307,6 +307,8 @@ const VideoWithOverlay = ({ src, poster }) => {
       <video
         ref={videoRef}
         controls
+        playsInline
+        webkit-playsinline="true"
         className="w-full h-full object-cover"
         poster={poster}
         onPlay={handlePlay}
@@ -1254,13 +1256,13 @@ const App = () => {
         )}
 
         {/* HERO SECTION */}
-        <section id="hero" className="pt-32 pb-20 px-6 relative overflow-hidden min-h-screen flex items-center">
-          {/* Floating Blob Backgrounds */}
-          <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-gradient-to-br from-violet-400/30 to-sky-400/30 rounded-full blur-3xl animate-blob pointer-events-none"></div>
-          <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-gradient-to-br from-teal-400/30 to-cyan-400/30 rounded-full blur-3xl animate-blob pointer-events-none" style={{animationDelay: '-3s'}}></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-cyan-400/20 to-violet-400/20 rounded-full blur-3xl animate-float-slow pointer-events-none"></div>
+        <section id="hero" className="pt-24 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 relative overflow-hidden min-h-screen flex items-center">
+          {/* Floating Blob Backgrounds - Hidden on small mobile, smaller sizes on tablet */}
+          <div className="absolute top-20 right-0 sm:right-10 w-[250px] sm:w-[350px] md:w-[500px] h-[250px] sm:h-[350px] md:h-[500px] bg-gradient-to-br from-violet-400/30 to-sky-400/30 rounded-full blur-3xl animate-blob pointer-events-none"></div>
+          <div className="absolute bottom-20 left-0 sm:left-10 w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] bg-gradient-to-br from-teal-400/30 to-cyan-400/30 rounded-full blur-3xl animate-blob pointer-events-none" style={{animationDelay: '-3s'}}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[600px] h-[300px] sm:h-[400px] md:h-[600px] bg-gradient-to-br from-cyan-400/20 to-violet-400/20 rounded-full blur-3xl animate-float-slow pointer-events-none"></div>
 
-          <div className="max-w-6xl mx-auto text-center space-y-10 relative z-10">
+          <div className="max-w-6xl mx-auto text-center space-y-6 sm:space-y-10 relative z-10 w-full">
               <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-gradient-to-r from-violet-100 to-sky-100 border border-violet-200 text-violet-700 text-sm font-bold uppercase tracking-wider shadow-lg animate-bounce-in">
                 <Sparkles size={18} className="text-violet-500" />
                 <span className="w-2 h-2 rounded-full bg-gradient-to-r from-violet-500 to-sky-500 animate-pulse"></span>
@@ -1407,9 +1409,51 @@ const App = () => {
               </p>
             </div>
 
-            <BrowserMockup title="astra-demo">
-               <GsapAstraDemo />
-            </BrowserMockup>
+            {/* Desktop: Full animated demo */}
+            <div className="hidden md:block">
+              <BrowserMockup title="astra-demo">
+                 <GsapAstraDemo />
+              </BrowserMockup>
+            </div>
+
+            {/* Mobile: Simplified demo preview */}
+            <div className="md:hidden">
+              <div className="bg-white rounded-2xl shadow-2xl shadow-violet-500/20 overflow-hidden border border-slate-200 p-6">
+                <div className="text-center space-y-6">
+                  <div className="w-24 h-24 mx-auto">
+                    <img src="/Astra_Color_lightmode.png" alt="Astra" className="w-full h-full object-contain" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-800">Astra Demo</h3>
+                  <p className="text-slate-600 text-sm">For the best experience viewing our interactive demo, please use a tablet or desktop device.</p>
+                  <div className="grid grid-cols-2 gap-3 pt-4">
+                    <div className="bg-violet-50 p-3 rounded-xl text-center">
+                      <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-violet-100 flex items-center justify-center">
+                        <Bot size={20} className="text-violet-600" />
+                      </div>
+                      <span className="text-xs font-medium text-slate-700">AI Chat</span>
+                    </div>
+                    <div className="bg-sky-50 p-3 rounded-xl text-center">
+                      <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-sky-100 flex items-center justify-center">
+                        <Network size={20} className="text-sky-600" />
+                      </div>
+                      <span className="text-xs font-medium text-slate-700">Auto-Connect</span>
+                    </div>
+                    <div className="bg-emerald-50 p-3 rounded-xl text-center">
+                      <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-emerald-100 flex items-center justify-center">
+                        <LayoutDashboard size={20} className="text-emerald-600" />
+                      </div>
+                      <span className="text-xs font-medium text-slate-700">Dashboard</span>
+                    </div>
+                    <div className="bg-amber-50 p-3 rounded-xl text-center">
+                      <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-amber-100 flex items-center justify-center">
+                        <CheckCircle2 size={20} className="text-amber-600" />
+                      </div>
+                      <span className="text-xs font-medium text-slate-700">Approvals</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1445,22 +1489,87 @@ const App = () => {
         */}
 
         {/* VALUE PROPOSITION - ORBITAL DESIGN */}
-        <section id="product" className="py-32 bg-gradient-to-b from-white via-violet-50/30 to-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center max-w-4xl mx-auto mb-16">
-              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-gradient-to-r from-violet-100 to-sky-100 border border-violet-200 text-violet-700 text-sm font-bold uppercase tracking-wider mb-6">
-                <Zap size={18} /> Why Astra?
+        <section id="product" className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-white via-violet-50/30 to-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-16">
+              <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-violet-100 to-sky-100 border border-violet-200 text-violet-700 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 sm:mb-6">
+                <Zap size={16} className="sm:w-[18px] sm:h-[18px]" /> Why Astra?
               </div>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">The "Work Mess" is <span className="gradient-text">Solved.</span></h2>
-              <p className="text-xl text-slate-600 leading-relaxed">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 sm:mb-6 px-2">The "Work Mess" is <span className="gradient-text">Solved.</span></h2>
+              <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed px-2">
                 Traditional ERPs sell you rigid containers you have to manually fill.
-                <br/>
+                <br className="hidden sm:block"/>
                 <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-sky-600">Astra builds the container around your actual work.</span>
               </p>
             </div>
 
-            {/* ORBITAL SOLAR SYSTEM DESIGN - ALL CAPABILITIES */}
-            <div className="relative min-h-[800px] flex items-center justify-center">
+            {/* MOBILE: Grid Layout */}
+            <div className="lg:hidden">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                {/* Center Hub */}
+                <div className="col-span-2 sm:col-span-3 flex justify-center mb-4">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-violet-600 via-sky-600 to-cyan-600 rounded-full flex items-center justify-center shadow-xl shadow-violet-500/40">
+                    <div className="text-center text-white">
+                      <img src="/Astra_Color_lightmode.png" alt="Astra" className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-1 object-contain" />
+                      <span className="font-black text-sm">ASTRA</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Core Features */}
+                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-violet-100">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white text-sm mb-2">
+                    <i className="fa-solid fa-brain"></i>
+                  </div>
+                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Auto-Discovery</span>
+                </div>
+                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-emerald-100">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-sm mb-2">
+                    <i className="fa-solid fa-wand-magic-sparkles"></i>
+                  </div>
+                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Auto-Config</span>
+                </div>
+                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-amber-100">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white text-sm mb-2">
+                    <i className="fa-solid fa-comments"></i>
+                  </div>
+                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Astra Copilot</span>
+                </div>
+                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-blue-100">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-white text-sm mb-2">
+                    <i className="fa-solid fa-diagram-project"></i>
+                  </div>
+                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Knowledge Graph</span>
+                </div>
+                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-cyan-100">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm mb-2">
+                    <i className="fa-solid fa-industry"></i>
+                  </div>
+                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Manufacturing</span>
+                </div>
+                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-purple-100">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center text-white text-sm mb-2">
+                    <i className="fa-solid fa-robot"></i>
+                  </div>
+                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Agentic AI</span>
+                </div>
+                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-green-100">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white text-sm mb-2">
+                    <i className="fa-solid fa-shield-halved"></i>
+                  </div>
+                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Zero-Trust</span>
+                </div>
+                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-indigo-100">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center text-white text-sm mb-2">
+                    <i className="fa-solid fa-store"></i>
+                  </div>
+                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Retail & D2C</span>
+                </div>
+              </div>
+            </div>
+
+            {/* DESKTOP: ORBITAL SOLAR SYSTEM DESIGN - ALL CAPABILITIES */}
+            <div className="hidden lg:flex relative min-h-[800px] items-center justify-center">
 
               {/* Orbital Rings */}
               <div className="absolute w-[200px] h-[200px] md:w-[280px] md:h-[280px] border border-violet-200/50 rounded-full"></div>
