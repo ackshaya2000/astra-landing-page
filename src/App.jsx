@@ -1409,51 +1409,22 @@ const App = () => {
               </p>
             </div>
 
-            {/* Desktop: Full animated demo */}
-            <div className="hidden md:block">
-              <BrowserMockup title="astra-demo">
-                 <GsapAstraDemo />
-              </BrowserMockup>
-            </div>
-
-            {/* Mobile: Simplified demo preview */}
-            <div className="md:hidden">
-              <div className="bg-white rounded-2xl shadow-2xl shadow-violet-500/20 overflow-hidden border border-slate-200 p-6">
-                <div className="text-center space-y-6">
-                  <div className="w-24 h-24 mx-auto">
-                    <img src="/Astra_Color_lightmode.png" alt="Astra" className="w-full h-full object-contain" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-800">Astra Demo</h3>
-                  <p className="text-slate-600 text-sm">For the best experience viewing our interactive demo, please use a tablet or desktop device.</p>
-                  <div className="grid grid-cols-2 gap-3 pt-4">
-                    <div className="bg-violet-50 p-3 rounded-xl text-center">
-                      <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-violet-100 flex items-center justify-center">
-                        <Bot size={20} className="text-violet-600" />
-                      </div>
-                      <span className="text-xs font-medium text-slate-700">AI Chat</span>
-                    </div>
-                    <div className="bg-sky-50 p-3 rounded-xl text-center">
-                      <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-sky-100 flex items-center justify-center">
-                        <Network size={20} className="text-sky-600" />
-                      </div>
-                      <span className="text-xs font-medium text-slate-700">Auto-Connect</span>
-                    </div>
-                    <div className="bg-emerald-50 p-3 rounded-xl text-center">
-                      <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-emerald-100 flex items-center justify-center">
-                        <LayoutDashboard size={20} className="text-emerald-600" />
-                      </div>
-                      <span className="text-xs font-medium text-slate-700">Dashboard</span>
-                    </div>
-                    <div className="bg-amber-50 p-3 rounded-xl text-center">
-                      <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-amber-100 flex items-center justify-center">
-                        <CheckCircle2 size={20} className="text-amber-600" />
-                      </div>
-                      <span className="text-xs font-medium text-slate-700">Approvals</span>
-                    </div>
-                  </div>
-                </div>
+            {/* Demo - Scales responsively on all devices */}
+            <div className="w-full overflow-hidden">
+              {/* Mobile: Scale down the demo to fit */}
+              <div className="md:hidden" style={{ transform: 'scale(0.85)', transformOrigin: 'top center', marginBottom: '-15%' }}>
+                <BrowserMockup title="astra-demo">
+                   <GsapAstraDemo />
+                </BrowserMockup>
+              </div>
+              {/* Tablet and Desktop: Full size */}
+              <div className="hidden md:block">
+                <BrowserMockup title="astra-demo">
+                   <GsapAstraDemo />
+                </BrowserMockup>
               </div>
             </div>
+            <p className="text-center text-slate-400 text-xs mt-4 md:hidden">Rotate to landscape for best experience</p>
           </div>
         </section>
 
@@ -1503,67 +1474,120 @@ const App = () => {
               </p>
             </div>
 
-            {/* MOBILE: Grid Layout */}
-            <div className="lg:hidden">
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                {/* Center Hub */}
-                <div className="col-span-2 sm:col-span-3 flex justify-center mb-4">
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-violet-600 via-sky-600 to-cyan-600 rounded-full flex items-center justify-center shadow-xl shadow-violet-500/40">
-                    <div className="text-center text-white">
-                      <img src="/Astra_Color_lightmode.png" alt="Astra" className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-1 object-contain" />
-                      <span className="font-black text-sm">ASTRA</span>
-                    </div>
-                  </div>
+            {/* MOBILE: Stacked Category Cards with all 18 features */}
+            <div className="lg:hidden space-y-6">
+              {/* Astra Hub */}
+              <div className="flex justify-center">
+                <div className="w-20 h-20 bg-gradient-to-br from-violet-600 via-sky-600 to-cyan-600 rounded-full flex items-center justify-center shadow-xl shadow-violet-500/40">
+                  <img src="/Astra_Color_lightmode.png" alt="Astra" className="w-12 h-12 object-contain" />
                 </div>
+              </div>
 
-                {/* Core Features */}
-                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-violet-100">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white text-sm mb-2">
-                    <i className="fa-solid fa-brain"></i>
+              {/* Core AI - Purple Card */}
+              <div className="bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl p-4 shadow-lg">
+                <h3 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
+                  <Sparkles size={16} /> Core AI Engine
+                </h3>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-brain text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Auto-Discovery</span>
                   </div>
-                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Auto-Discovery</span>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Auto-Config</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-comments text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Astra Copilot</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-diagram-project text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Knowledge Graph</span>
+                  </div>
                 </div>
-                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-emerald-100">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-sm mb-2">
-                    <i className="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+
+              {/* Industry Solutions - Sky Card */}
+              <div className="bg-gradient-to-br from-sky-500 to-cyan-600 rounded-2xl p-4 shadow-lg">
+                <h3 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
+                  <Layers size={16} /> Industry Solutions
+                </h3>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-industry text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Manufacturing</span>
                   </div>
-                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Auto-Config</span>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-store text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Retail & D2C</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-briefcase text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Pro Services</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-clipboard-check text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Quality Control</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-robot text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Agentic Workflows</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-bolt text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Zero Transition</span>
+                  </div>
                 </div>
-                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-amber-100">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white text-sm mb-2">
-                    <i className="fa-solid fa-comments"></i>
+              </div>
+
+              {/* Platform & Security - Emerald Card */}
+              <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 shadow-lg">
+                <h3 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
+                  <ShieldCheck size={16} /> Platform & Security
+                </h3>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-shield-halved text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Zero-Trust</span>
                   </div>
-                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Astra Copilot</span>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-cloud text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Cloud / On-Prem</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-user-check text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Worker-First</span>
+                  </div>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-lock text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">RBAC & Audit</span>
+                  </div>
                 </div>
-                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-blue-100">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center text-white text-sm mb-2">
-                    <i className="fa-solid fa-diagram-project"></i>
+              </div>
+
+              {/* Operations - Amber Card */}
+              <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-4 shadow-lg">
+                <h3 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
+                  <Settings size={16} /> Operations Suite
+                </h3>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-chart-line text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">BOM & MRP</span>
                   </div>
-                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Knowledge Graph</span>
-                </div>
-                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-cyan-100">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm mb-2">
-                    <i className="fa-solid fa-industry"></i>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-truck text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">3PL & Logistics</span>
                   </div>
-                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Manufacturing</span>
-                </div>
-                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-purple-100">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center text-white text-sm mb-2">
-                    <i className="fa-solid fa-robot"></i>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-file-invoice-dollar text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">T&M Billing</span>
                   </div>
-                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Agentic AI</span>
-                </div>
-                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-green-100">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white text-sm mb-2">
-                    <i className="fa-solid fa-shield-halved"></i>
+                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                    <i className="fa-solid fa-dollar-sign text-white text-sm"></i>
+                    <span className="text-white text-xs font-medium">Revenue Rec</span>
                   </div>
-                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Zero-Trust</span>
-                </div>
-                <div className="bg-white p-3 sm:p-4 rounded-xl shadow-md border border-indigo-100">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center text-white text-sm mb-2">
-                    <i className="fa-solid fa-store"></i>
-                  </div>
-                  <span className="font-semibold text-slate-700 text-xs sm:text-sm">Retail & D2C</span>
                 </div>
               </div>
             </div>
