@@ -1409,22 +1409,43 @@ const App = () => {
               </p>
             </div>
 
-            {/* Demo - Scales responsively on all devices */}
-            <div className="w-full overflow-hidden">
-              {/* Mobile: Scale down the demo to fit */}
-              <div className="md:hidden" style={{ transform: 'scale(0.85)', transformOrigin: 'top center', marginBottom: '-15%' }}>
+            {/* Demo - Uniform scale like video resizing */}
+            <style>{`
+              .demo-scale-wrapper {
+                transform-origin: center top;
+              }
+              @media (max-width: 480px) {
+                .demo-scale-wrapper {
+                  transform: scale(0.38);
+                  margin-bottom: -320px;
+                }
+              }
+              @media (min-width: 481px) and (max-width: 768px) {
+                .demo-scale-wrapper {
+                  transform: scale(0.5);
+                  margin-bottom: -260px;
+                }
+              }
+              @media (min-width: 769px) and (max-width: 1024px) {
+                .demo-scale-wrapper {
+                  transform: scale(0.75);
+                  margin-bottom: -130px;
+                }
+              }
+              @media (min-width: 1025px) {
+                .demo-scale-wrapper {
+                  transform: scale(1);
+                  margin-bottom: 0;
+                }
+              }
+            `}</style>
+            <div className="w-full flex justify-center">
+              <div className="demo-scale-wrapper">
                 <BrowserMockup title="astra-demo">
-                   <GsapAstraDemo />
-                </BrowserMockup>
-              </div>
-              {/* Tablet and Desktop: Full size */}
-              <div className="hidden md:block">
-                <BrowserMockup title="astra-demo">
-                   <GsapAstraDemo />
+                  <GsapAstraDemo />
                 </BrowserMockup>
               </div>
             </div>
-            <p className="text-center text-slate-400 text-xs mt-4 md:hidden">Rotate to landscape for best experience</p>
           </div>
         </section>
 
@@ -1474,119 +1495,212 @@ const App = () => {
               </p>
             </div>
 
-            {/* MOBILE: Stacked Category Cards with all 18 features */}
-            <div className="lg:hidden space-y-6">
-              {/* Astra Hub */}
-              <div className="flex justify-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-violet-600 via-sky-600 to-cyan-600 rounded-full flex items-center justify-center shadow-xl shadow-violet-500/40">
-                  <img src="/Astra_Color_lightmode.png" alt="Astra" className="w-12 h-12 object-contain" />
+            {/* MOBILE: Animated Floating Universe with all 18 features */}
+            <div className="lg:hidden">
+              {/* CSS for animations */}
+              <style>{`
+                @keyframes float-orbit-1 {
+                  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                  25% { transform: translate(10px, -15px) rotate(5deg); }
+                  50% { transform: translate(-5px, -25px) rotate(-3deg); }
+                  75% { transform: translate(-15px, -10px) rotate(3deg); }
+                }
+                @keyframes float-orbit-2 {
+                  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                  25% { transform: translate(-12px, 10px) rotate(-4deg); }
+                  50% { transform: translate(8px, 20px) rotate(5deg); }
+                  75% { transform: translate(15px, 5px) rotate(-2deg); }
+                }
+                @keyframes float-orbit-3 {
+                  0%, 100% { transform: translate(0, 0); }
+                  33% { transform: translate(15px, -8px); }
+                  66% { transform: translate(-10px, 12px); }
+                }
+                @keyframes pulse-glow {
+                  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+                  50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(56, 189, 248, 0.3); }
+                }
+                @keyframes marquee-left {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-50%); }
+                }
+                @keyframes marquee-right {
+                  0% { transform: translateX(-50%); }
+                  100% { transform: translateX(0); }
+                }
+                .animate-float-1 { animation: float-orbit-1 6s ease-in-out infinite; }
+                .animate-float-2 { animation: float-orbit-2 7s ease-in-out infinite; }
+                .animate-float-3 { animation: float-orbit-3 5s ease-in-out infinite; }
+                .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+                .marquee-track-left { animation: marquee-left 25s linear infinite; }
+                .marquee-track-right { animation: marquee-right 25s linear infinite; }
+                .feature-bubble {
+                  backdrop-filter: blur(8px);
+                  transition: all 0.3s ease;
+                }
+                .feature-bubble:hover {
+                  transform: scale(1.1);
+                }
+              `}</style>
+
+              {/* Central Astra Hub with Pulse */}
+              <div className="flex justify-center mb-8">
+                <div className="relative">
+                  {/* Pulsing rings */}
+                  <div className="absolute inset-0 w-24 h-24 rounded-full bg-gradient-to-br from-violet-400 to-sky-400 opacity-20 animate-ping"></div>
+                  <div className="absolute -inset-2 w-28 h-28 rounded-full border-2 border-violet-300/30 animate-pulse"></div>
+                  <div className="absolute -inset-4 w-32 h-32 rounded-full border border-sky-300/20"></div>
+                  {/* Main hub */}
+                  <div className="relative w-24 h-24 bg-gradient-to-br from-violet-600 via-sky-600 to-cyan-600 rounded-full flex items-center justify-center shadow-2xl animate-pulse-glow">
+                    <img src="/Astra_Color_lightmode.png" alt="Astra" className="w-14 h-14 object-contain" />
+                  </div>
                 </div>
               </div>
 
-              {/* Core AI - Purple Card */}
-              <div className="bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl p-4 shadow-lg">
-                <h3 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
-                  <Sparkles size={16} /> Core AI Engine
-                </h3>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+              {/* Floating Feature Bubbles - Organized in orbital layers */}
+              <div className="relative min-h-[420px] overflow-hidden">
+                {/* Inner orbit - Core AI */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 animate-float-1">
+                  <div className="feature-bubble bg-gradient-to-r from-violet-500/90 to-purple-600/90 px-4 py-2.5 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
                     <i className="fa-solid fa-brain text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Auto-Discovery</span>
+                    <span className="text-white text-xs font-bold whitespace-nowrap">Auto-Discovery</span>
                   </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                </div>
+                <div className="absolute top-8 left-4 animate-float-2" style={{animationDelay: '0.5s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-violet-500/90 to-purple-600/90 px-4 py-2.5 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
                     <i className="fa-solid fa-wand-magic-sparkles text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Auto-Config</span>
+                    <span className="text-white text-xs font-bold whitespace-nowrap">Auto-Config</span>
                   </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                </div>
+                <div className="absolute top-8 right-4 animate-float-3" style={{animationDelay: '1s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-violet-500/90 to-purple-600/90 px-4 py-2.5 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
                     <i className="fa-solid fa-comments text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Astra Copilot</span>
+                    <span className="text-white text-xs font-bold whitespace-nowrap">Astra Copilot</span>
                   </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
+                </div>
+                <div className="absolute top-20 left-1/2 -translate-x-1/2 animate-float-2" style={{animationDelay: '1.5s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-blue-500/90 to-cyan-600/90 px-4 py-2.5 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
                     <i className="fa-solid fa-diagram-project text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Knowledge Graph</span>
+                    <span className="text-white text-xs font-bold whitespace-nowrap">Knowledge Graph</span>
+                  </div>
+                </div>
+
+                {/* Middle orbit - Industry */}
+                <div className="absolute top-32 left-2 animate-float-3" style={{animationDelay: '0.3s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-cyan-500/90 to-blue-600/90 px-3 py-2 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
+                    <i className="fa-solid fa-industry text-white text-xs"></i>
+                    <span className="text-white text-[11px] font-semibold whitespace-nowrap">Manufacturing</span>
+                  </div>
+                </div>
+                <div className="absolute top-36 right-2 animate-float-1" style={{animationDelay: '0.8s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-indigo-500/90 to-blue-600/90 px-3 py-2 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
+                    <i className="fa-solid fa-store text-white text-xs"></i>
+                    <span className="text-white text-[11px] font-semibold whitespace-nowrap">Retail & D2C</span>
+                  </div>
+                </div>
+                <div className="absolute top-44 left-8 animate-float-2" style={{animationDelay: '1.3s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-slate-600/90 to-slate-800/90 px-3 py-2 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
+                    <i className="fa-solid fa-briefcase text-white text-xs"></i>
+                    <span className="text-white text-[11px] font-semibold whitespace-nowrap">Pro Services</span>
+                  </div>
+                </div>
+                <div className="absolute top-48 right-6 animate-float-3" style={{animationDelay: '1.8s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-teal-500/90 to-cyan-600/90 px-3 py-2 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
+                    <i className="fa-solid fa-clipboard-check text-white text-xs"></i>
+                    <span className="text-white text-[11px] font-semibold whitespace-nowrap">Quality Control</span>
+                  </div>
+                </div>
+                <div className="absolute top-56 left-1/2 -translate-x-1/2 animate-float-1" style={{animationDelay: '2.3s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-purple-500/90 to-violet-600/90 px-3 py-2 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
+                    <i className="fa-solid fa-robot text-white text-xs"></i>
+                    <span className="text-white text-[11px] font-semibold whitespace-nowrap">Agentic Workflows</span>
+                  </div>
+                </div>
+                <div className="absolute top-64 left-4 animate-float-2" style={{animationDelay: '2.8s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-red-500/90 to-orange-600/90 px-3 py-2 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
+                    <i className="fa-solid fa-bolt text-white text-xs"></i>
+                    <span className="text-white text-[11px] font-semibold whitespace-nowrap">Zero Transition</span>
+                  </div>
+                </div>
+
+                {/* Outer orbit - Platform & Operations */}
+                <div className="absolute top-72 right-4 animate-float-3" style={{animationDelay: '0.2s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-emerald-500/90 to-teal-600/90 px-3 py-2 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
+                    <i className="fa-solid fa-shield-halved text-white text-xs"></i>
+                    <span className="text-white text-[11px] font-semibold whitespace-nowrap">Zero-Trust</span>
+                  </div>
+                </div>
+                <div className="absolute top-80 left-1/2 -translate-x-1/2 animate-float-1" style={{animationDelay: '0.7s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-cyan-500/90 to-blue-600/90 px-3 py-2 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
+                    <i className="fa-solid fa-cloud text-white text-xs"></i>
+                    <span className="text-white text-[11px] font-semibold whitespace-nowrap">Cloud / On-Prem</span>
+                  </div>
+                </div>
+                <div className="absolute top-[340px] left-6 animate-float-2" style={{animationDelay: '1.2s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-yellow-500/90 to-orange-600/90 px-3 py-2 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
+                    <i className="fa-solid fa-user-check text-white text-xs"></i>
+                    <span className="text-white text-[11px] font-semibold whitespace-nowrap">Worker-First</span>
+                  </div>
+                </div>
+                <div className="absolute top-[340px] right-6 animate-float-3" style={{animationDelay: '1.7s'}}>
+                  <div className="feature-bubble bg-gradient-to-r from-violet-500/90 to-purple-600/90 px-3 py-2 rounded-full shadow-lg border border-white/20 flex items-center gap-2">
+                    <i className="fa-solid fa-lock text-white text-xs"></i>
+                    <span className="text-white text-[11px] font-semibold whitespace-nowrap">RBAC & Audit</span>
                   </div>
                 </div>
               </div>
 
-              {/* Industry Solutions - Sky Card */}
-              <div className="bg-gradient-to-br from-sky-500 to-cyan-600 rounded-2xl p-4 shadow-lg">
-                <h3 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
-                  <Layers size={16} /> Industry Solutions
-                </h3>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-industry text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Manufacturing</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-store text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Retail & D2C</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-briefcase text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Pro Services</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-clipboard-check text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Quality Control</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-robot text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Agentic Workflows</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-bolt text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Zero Transition</span>
+              {/* Animated Marquee Strips - Operations features */}
+              <div className="mt-4 space-y-3 overflow-hidden">
+                {/* Strip 1 - Left scroll */}
+                <div className="relative overflow-hidden py-2">
+                  <div className="flex gap-4 marquee-track-left" style={{width: 'max-content'}}>
+                    {[...Array(2)].map((_, i) => (
+                      <div key={i} className="flex gap-4">
+                        <div className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-600 px-4 py-2 rounded-full shadow-md">
+                          <i className="fa-solid fa-chart-line text-white text-xs"></i>
+                          <span className="text-white text-xs font-bold whitespace-nowrap">BOM & MRP</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-gradient-to-r from-sky-500 to-cyan-600 px-4 py-2 rounded-full shadow-md">
+                          <i className="fa-solid fa-truck text-white text-xs"></i>
+                          <span className="text-white text-xs font-bold whitespace-nowrap">3PL & Logistics</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 px-4 py-2 rounded-full shadow-md">
+                          <i className="fa-solid fa-file-invoice-dollar text-white text-xs"></i>
+                          <span className="text-white text-xs font-bold whitespace-nowrap">T&M Billing</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-gradient-to-r from-violet-500 to-purple-600 px-4 py-2 rounded-full shadow-md">
+                          <i className="fa-solid fa-dollar-sign text-white text-xs"></i>
+                          <span className="text-white text-xs font-bold whitespace-nowrap">Revenue Recognition</span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </div>
 
-              {/* Platform & Security - Emerald Card */}
-              <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 shadow-lg">
-                <h3 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
-                  <ShieldCheck size={16} /> Platform & Security
-                </h3>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-shield-halved text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Zero-Trust</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-cloud text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Cloud / On-Prem</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-user-check text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Worker-First</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-lock text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">RBAC & Audit</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Operations - Amber Card */}
-              <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-4 shadow-lg">
-                <h3 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
-                  <Settings size={16} /> Operations Suite
-                </h3>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-chart-line text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">BOM & MRP</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-truck text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">3PL & Logistics</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-file-invoice-dollar text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">T&M Billing</span>
-                  </div>
-                  <div className="bg-white/20 backdrop-blur rounded-xl p-3 flex items-center gap-2">
-                    <i className="fa-solid fa-dollar-sign text-white text-sm"></i>
-                    <span className="text-white text-xs font-medium">Revenue Rec</span>
+                {/* Strip 2 - Right scroll */}
+                <div className="relative overflow-hidden py-2">
+                  <div className="flex gap-4 marquee-track-right" style={{width: 'max-content'}}>
+                    {[...Array(2)].map((_, i) => (
+                      <div key={i} className="flex gap-4">
+                        <div className="flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-blue-600 px-4 py-2 rounded-full shadow-md">
+                          <i className="fa-solid fa-brain text-white text-xs"></i>
+                          <span className="text-white text-xs font-bold whitespace-nowrap">Auto-Discovery</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-600 px-4 py-2 rounded-full shadow-md">
+                          <i className="fa-solid fa-wand-magic-sparkles text-white text-xs"></i>
+                          <span className="text-white text-xs font-bold whitespace-nowrap">Auto-Config</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-teal-600 px-4 py-2 rounded-full shadow-md">
+                          <i className="fa-solid fa-robot text-white text-xs"></i>
+                          <span className="text-white text-xs font-bold whitespace-nowrap">Agentic Workflows</span>
+                        </div>
+                        <div className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-600 px-4 py-2 rounded-full shadow-md">
+                          <i className="fa-solid fa-bolt text-white text-xs"></i>
+                          <span className="text-white text-xs font-bold whitespace-nowrap">Zero Transition</span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
