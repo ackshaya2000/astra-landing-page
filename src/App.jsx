@@ -125,6 +125,26 @@ const customStyles = `
     100% { background-position: 200% 0; }
   }
 
+  @keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #8b5cf6; }
+  }
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
   .animate-marquee {
     animation: marquee 25s linear infinite;
   }
@@ -158,6 +178,37 @@ const customStyles = `
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
   }
+
+  .animate-fade-in-scale {
+    animation: fadeInScale 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-up-delay-1 {
+    animation-delay: 0.2s;
+  }
+
+  .animate-fade-in-up-delay-2 {
+    animation-delay: 0.4s;
+  }
+
+  .animate-fade-in-up-delay-3 {
+    animation-delay: 0.6s;
+  }
+
+  .hero-text-reveal {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+
+  .hero-text-line-1 { animation-delay: 0.1s; }
+  .hero-text-line-2 { animation-delay: 0.3s; }
+  .hero-text-line-3 { animation-delay: 0.5s; }
 
   .gradient-text {
     background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 50%, #06b6d4 100%);
@@ -1159,12 +1210,12 @@ const App = () => {
         {/* Navigation */}
         <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div className="flex items-center gap-3 cursor-pointer group" onClick={() => scrollTo('hero')}>
-              <img src="/Atlas_intellitek_white_symbol_nobg.png" alt="Atlas IntelliTek" className="w-10 h-10 object-contain group-hover:scale-110 transition-transform" />
-              <span className="text-xl font-extrabold tracking-tight text-slate-900">ATLAS <span className="gradient-text">INTELLITEK</span></span>
-              <span className="text-slate-400 font-light">|</span>
-              <img src="/Astra_Color_lightmode.png" alt="Astra" className="w-8 h-8 object-contain" />
-              <span className="text-lg font-bold text-slate-700">Astra</span>
+            <div className="flex items-center gap-2 sm:gap-3 cursor-pointer group" onClick={() => scrollTo('hero')}>
+              <img src="/Atlas_intellitek_white_symbol_nobg.png" alt="Atlas IntelliTek" className="w-8 h-8 sm:w-10 sm:h-10 object-contain group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline text-xl font-extrabold tracking-tight text-slate-900">ATLAS <span className="gradient-text">INTELLITEK</span></span>
+              <span className="hidden sm:inline text-slate-400 font-light">|</span>
+              <img src="/Astra_Color_lightmode.png" alt="Astra" className="w-7 h-7 sm:w-8 sm:h-8 object-contain" />
+              <span className="text-base sm:text-lg font-bold text-slate-700">Astra</span>
             </div>
 
             <div className="hidden md:flex items-center gap-6">
@@ -1216,21 +1267,21 @@ const App = () => {
                 Pilot Active
               </div>
 
-              <div className="flex items-center justify-center gap-6">
-                {/* Astra Logo - Positioned to the left of the tagline */}
+              <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6">
+                {/* Astra Logo - Smooth fade in animation */}
                 <img
                   src="/Nobg_Astra.png"
                   alt="Astra AI"
-                  className="hidden lg:block w-auto h-[200px] md:h-[280px] object-contain drop-shadow-2xl"
+                  className="w-auto h-[120px] sm:h-[160px] lg:h-[280px] object-contain drop-shadow-2xl animate-fade-in-scale"
                 />
-                <h1 className="text-6xl md:text-8xl font-black tracking-tight text-slate-900 leading-[1.05]">
-                  The First <br/>
-                  <span className="gradient-text">Autonomous</span> <br/>
-                  ERP & CRM.
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight text-slate-900 leading-[1.05] text-center lg:text-left">
+                  <span className="hero-text-reveal hero-text-line-1 inline-block">The First</span> <br/>
+                  <span className="hero-text-reveal hero-text-line-2 inline-block gradient-text">Autonomous</span> <br/>
+                  <span className="hero-text-reveal hero-text-line-3 inline-block">ERP & CRM.</span>
                 </h1>
               </div>
 
-              <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animate-fade-in-up-delay-2">
                 Software shouldn't require a PhD to implement. <span className="font-bold text-slate-900">Astra</span> connects to your existing tools, learns your business graph, and auto-builds your ERP.
                 <br/><br/>
                 <span className="inline-flex items-center gap-2 text-violet-600 font-bold">
@@ -1238,7 +1289,7 @@ const App = () => {
                 </span>
               </p>
 
-              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6 animate-fade-in-up animate-fade-in-up-delay-3">
                 <button
                   onClick={() => scrollTo('contact')}
                   className="bg-gradient-to-r from-violet-600 via-sky-600 to-violet-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white px-10 py-5 rounded-full font-bold text-lg transition-all shadow-2xl shadow-violet-500/30 hover:shadow-violet-500/50 flex items-center justify-center gap-3 hover:scale-105 group"
@@ -1262,29 +1313,29 @@ const App = () => {
         </section>
 
         {/* FOUNDERS SECTION */}
-        <section id="founders" className="py-32 bg-gradient-to-b from-violet-50/50 via-white to-sky-50/50 relative overflow-hidden">
+        <section id="founders" className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-violet-50/50 via-white to-sky-50/50 relative overflow-hidden">
           {/* Background Decorations */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-violet-200/30 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-200/30 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-violet-200/30 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-sky-200/30 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="text-center mb-20">
-               <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-gradient-to-r from-sky-100 to-cyan-100 border border-sky-200 text-sky-700 text-sm font-bold uppercase tracking-wider mb-6">
-                  <Users size={18} /> The Powerhouse Duo
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            <div className="text-center mb-12 sm:mb-20">
+               <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-sky-100 to-cyan-100 border border-sky-200 text-sky-700 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 sm:mb-6">
+                  <Users size={16} className="sm:w-[18px] sm:h-[18px]" /> The Powerhouse Duo
                </div>
-               <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6">Sisters. Engineers. <span className="gradient-text">Builders.</span></h2>
-               <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 sm:mb-6">Sisters. Engineers. <span className="gradient-text">Builders.</span></h2>
+               <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-2">
                  We don't just share a last name; we share a relentless drive to fix broken systems. With a zero-ego dynamic and complimentary skills, we move faster than any traditional co-founder match.
                </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-10 items-stretch mb-20">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-10 items-stretch mb-12 sm:mb-20">
                {/* Ackshaya */}
-               <div className="bg-white rounded-[2.5rem] p-10 border-2 border-violet-100 hover:border-violet-300 hover:shadow-2xl hover:shadow-violet-500/10 transition-all duration-500 flex flex-col items-center text-center group hover:-translate-y-2">
-                  <div className="w-64 h-64 bg-gradient-to-br from-violet-400 via-sky-400 to-cyan-400 rounded-[2rem] mb-8 border-4 border-white shadow-2xl overflow-hidden relative group-hover:scale-105 transition-transform duration-500">
+               <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-6 sm:p-10 border-2 border-violet-100 hover:border-violet-300 hover:shadow-2xl hover:shadow-violet-500/10 transition-all duration-500 flex flex-col items-center text-center group hover:-translate-y-2">
+                  <div className="w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 bg-gradient-to-br from-violet-400 via-sky-400 to-cyan-400 rounded-[1.5rem] sm:rounded-[2rem] mb-6 sm:mb-8 border-4 border-white shadow-2xl overflow-hidden relative group-hover:scale-105 transition-transform duration-500">
                      <img src="/Ackshaya.jpeg" alt="Ackshaya Varshini" className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-3xl font-black text-slate-900 flex items-center gap-3 mb-2">
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 flex items-center gap-2 sm:gap-3 mb-2">
                      Ackshaya Varshini
                      <a href="https://www.linkedin.com/in/ackshaya" target="_blank" rel="noreferrer" className="text-violet-500 hover:text-violet-700 hover:scale-110 transition-all"><Linkedin size={24}/></a>
                   </h3>
@@ -1304,11 +1355,11 @@ const App = () => {
                </div>
 
                {/* Hari */}
-               <div className="bg-white rounded-[2.5rem] p-10 border-2 border-sky-100 hover:border-sky-300 hover:shadow-2xl hover:shadow-sky-500/10 transition-all duration-500 flex flex-col items-center text-center group hover:-translate-y-2">
-                  <div className="w-64 h-64 bg-gradient-to-br from-sky-400 via-cyan-400 to-blue-400 rounded-[2rem] mb-8 border-4 border-white shadow-2xl overflow-hidden relative group-hover:scale-105 transition-transform duration-500">
+               <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] p-6 sm:p-10 border-2 border-sky-100 hover:border-sky-300 hover:shadow-2xl hover:shadow-sky-500/10 transition-all duration-500 flex flex-col items-center text-center group hover:-translate-y-2">
+                  <div className="w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64 bg-gradient-to-br from-sky-400 via-cyan-400 to-blue-400 rounded-[1.5rem] sm:rounded-[2rem] mb-6 sm:mb-8 border-4 border-white shadow-2xl overflow-hidden relative group-hover:scale-105 transition-transform duration-500">
                      <img src="/Dharshini.jpeg" alt="Hari Dharshini" className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-3xl font-black text-slate-900 flex items-center gap-3 mb-2">
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 flex items-center gap-2 sm:gap-3 mb-2">
                      Hari Dharshini
                      <a href="https://www.linkedin.com/in/hari-dharshini/" target="_blank" rel="noreferrer" className="text-sky-500 hover:text-sky-700 hover:scale-110 transition-all"><Linkedin size={24}/></a>
                   </h3>
@@ -1340,18 +1391,18 @@ const App = () => {
         </section>
 
         {/* PRODUCT DEMO - GSAP ANIMATION SECTION */}
-        <section id="demo" className="py-32 bg-gradient-to-br from-slate-900 via-violet-950 to-slate-900 text-white relative overflow-hidden">
+        <section id="demo" className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-violet-950 to-slate-900 text-white relative overflow-hidden">
           {/* Floating elements */}
-          <div className="absolute top-20 left-20 w-64 h-64 bg-violet-500/20 rounded-full blur-3xl animate-float pointer-events-none"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-sky-500/20 rounded-full blur-3xl animate-float-slow pointer-events-none"></div>
+          <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-40 sm:w-64 h-40 sm:h-64 bg-violet-500/20 rounded-full blur-3xl animate-float pointer-events-none"></div>
+          <div className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-48 sm:w-80 h-48 sm:h-80 bg-sky-500/20 rounded-full blur-3xl animate-float-slow pointer-events-none"></div>
 
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white text-sm font-bold uppercase tracking-wider mb-6">
-                <Play size={18} /> Product Walkthrough
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            <div className="text-center mb-10 sm:mb-16">
+              <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 sm:mb-6">
+                <Play size={16} className="sm:w-[18px] sm:h-[18px]" /> Product Walkthrough
               </div>
-              <h2 className="text-5xl md:text-6xl font-black text-white mb-6">See <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-sky-400">Astra</span> in Action</h2>
-              <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 sm:mb-6">See <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-sky-400">Astra</span> in Action</h2>
+              <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto px-2">
                 Watch how Astra autonomously builds a complete ERP system from a single prompt.
               </p>
             </div>
@@ -1837,25 +1888,25 @@ const App = () => {
         </section>
 
         {/* CONTACT & DIRECT MESSAGE */}
-        <section id="contact" className="py-32 bg-gradient-to-br from-slate-900 via-violet-950 to-slate-900 relative overflow-hidden">
+        <section id="contact" className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-slate-900 via-violet-950 to-slate-900 relative overflow-hidden">
           {/* Background Effects */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl animate-float"></div>
-             <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-sky-500/20 rounded-full blur-3xl animate-float-slow"></div>
+             <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-violet-500/20 rounded-full blur-3xl animate-float"></div>
+             <div className="absolute bottom-1/4 right-1/4 w-56 sm:w-80 h-56 sm:h-80 bg-sky-500/20 rounded-full blur-3xl animate-float-slow"></div>
           </div>
 
-          <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white text-sm font-bold uppercase tracking-wider mb-8">
-              <Heart size={18} className="text-cyan-400" /> Join Us
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+            <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white text-xs sm:text-sm font-bold uppercase tracking-wider mb-6 sm:mb-8">
+              <Heart size={16} className="sm:w-[18px] sm:h-[18px] text-cyan-400" /> Join Us
             </div>
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-6">Invest in the <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-sky-400 to-cyan-400">Autonomous Future</span></h2>
-            <p className="text-xl text-slate-300 mb-16 max-w-2xl mx-auto">We are raising a pre-seed round to support our L&T deployment. Looking for strategic partners.</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 sm:mb-6">Invest in the <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-sky-400 to-cyan-400">Autonomous Future</span></h2>
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-10 sm:mb-16 max-w-2xl mx-auto px-2">We are raising a pre-seed round to support our L&T deployment. Looking for strategic partners.</p>
 
-            <div className="grid md:grid-cols-2 gap-8 text-left">
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 text-left">
                {/* Contact Info */}
-               <div className="bg-white/10 backdrop-blur-xl p-10 rounded-[2rem] border border-white/20 hover:border-violet-400/50 transition-all duration-500">
-                  <h3 className="text-2xl font-black text-white mb-8 flex items-center gap-3">
-                    <Phone className="text-violet-400" /> Founder Direct Line
+               <div className="bg-white/10 backdrop-blur-xl p-6 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-white/20 hover:border-violet-400/50 transition-all duration-500">
+                  <h3 className="text-xl sm:text-2xl font-black text-white mb-6 sm:mb-8 flex items-center gap-2 sm:gap-3">
+                    <Phone className="text-violet-400" size={20} /> Founder Direct Line
                   </h3>
                   <div className="space-y-6">
                     <ContactRow icon={<Mail size={22} />} label="Email" value="admin@atlasintellitek.com" link="mailto:admin@atlasintellitek.com" />
@@ -1866,11 +1917,11 @@ const App = () => {
                </div>
 
                {/* Direct Message Box */}
-               <div className="bg-gradient-to-br from-violet-600/90 to-sky-600/90 backdrop-blur-xl p-10 rounded-[2rem] border border-white/20 shadow-2xl shadow-violet-500/30">
-                  <h3 className="text-2xl font-black text-white mb-2 flex items-center gap-3">
-                    <Send className="text-white" /> Send us a Message
+               <div className="bg-gradient-to-br from-violet-600/90 to-sky-600/90 backdrop-blur-xl p-6 sm:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-white/20 shadow-2xl shadow-violet-500/30">
+                  <h3 className="text-xl sm:text-2xl font-black text-white mb-2 flex items-center gap-2 sm:gap-3">
+                    <Send className="text-white" size={20} /> Send us a Message
                   </h3>
-                  <p className="text-violet-200 text-base mb-8">Skip the intro. Send a direct note to the founders.</p>
+                  <p className="text-violet-200 text-sm sm:text-base mb-6 sm:mb-8">Skip the intro. Send a direct note to the founders.</p>
 
                   <form className="space-y-5" onSubmit={async (e) => {
                      e.preventDefault();
