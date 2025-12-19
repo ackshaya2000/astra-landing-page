@@ -689,7 +689,7 @@ const GsapAstraDemo = () => {
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold text-slate-800 mb-2">Experience Astra</h3>
-              <p className="text-slate-500">Watch the autonomous ERP in action</p>
+              <p className="text-slate-500">Watch the autonomous manufacturing ERP in action</p>
             </div>
           </button>
         </div>
@@ -707,7 +707,7 @@ const GsapAstraDemo = () => {
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold text-slate-800 mb-2">Experience Astra</h3>
-              <p className="text-slate-500">Watch the autonomous ERP in action</p>
+              <p className="text-slate-500">Watch the autonomous manufacturing ERP in action</p>
             </div>
           </button>
         </div>
@@ -1279,15 +1279,16 @@ const App = () => {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight text-slate-900 leading-[1.05] text-center lg:text-left">
                   <span className="hero-text-reveal hero-text-line-1 inline-block">The First</span> <br/>
                   <span className="hero-text-reveal hero-text-line-2 inline-block gradient-text">Autonomous</span> <br/>
-                  <span className="hero-text-reveal hero-text-line-3 inline-block">ERP & CRM.</span>
+                  <span className="hero-text-reveal hero-text-line-3 inline-block">ERP & CRM</span> <br/>
+                  <span className="hero-text-reveal hero-text-line-3 inline-block text-3xl sm:text-4xl md:text-5xl lg:text-6xl">for <span className="gradient-text">Manufacturing.</span></span>
                 </h1>
               </div>
 
               <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animate-fade-in-up-delay-2">
-                Software shouldn't require a PhD to implement. <span className="font-bold text-slate-900">Astra</span> connects to your existing tools, learns your business graph, and auto-builds your ERP.
+                Built for the shop floor. <span className="font-bold text-slate-900">Astra</span> connects to your machines, learns your production flow, and auto-builds your entire manufacturing ERP.
                 <br/><br/>
                 <span className="inline-flex items-center gap-2 text-violet-600 font-bold">
-                  <Rocket size={20} /> Zero manual setup. Founder-built. Agentic.
+                  <Rocket size={20} /> BOM. MRP. Quality. Shop Floor. All automated.
                 </span>
               </p>
 
@@ -1308,7 +1309,7 @@ const App = () => {
 
               {/* INFINITE MARQUEE */}
               <div className="pt-16">
-                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Trusted By Industry Leaders</p>
+                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Trusted By Manufacturing Leaders</p>
                 <InfiniteMarquee />
               </div>
           </div>
@@ -1327,7 +1328,7 @@ const App = () => {
                </div>
                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-4 sm:mb-6">Sisters. Engineers. <span className="gradient-text">Builders.</span></h2>
                <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-2">
-                 We don't just share a last name; we share a relentless drive to fix broken systems. With a zero-ego dynamic and complimentary skills, we move faster than any traditional co-founder match.
+                 We don't just share a last name; we share a relentless drive to fix broken manufacturing systems. With a zero-ego dynamic and complimentary skills, we move faster than any traditional co-founder match.
                </p>
             </div>
 
@@ -1347,7 +1348,7 @@ const App = () => {
                   <div className="space-y-4 text-slate-600 text-base leading-relaxed">
                      <div className="flex items-start gap-3 text-left bg-violet-50 p-4 rounded-2xl">
                         <Award className="text-violet-500 flex-shrink-0 mt-1" size={20} />
-                        <p><b className="text-slate-900">The Hacker:</b> I once re-engineered a massive Siemens medical robot because it wouldn't fit in the operating room. I fit the machine to the room, not the room to the machine.</p>
+                        <p><b className="text-slate-900">The Hacker:</b> I re-engineered a Siemens medical robot to fit the operating room. That's our philosophy for manufacturing software—we fit the system to your factory, not your factory to the system.</p>
                      </div>
                      <div className="flex items-start gap-3 text-left bg-sky-50 p-4 rounded-2xl">
                         <Rocket className="text-sky-500 flex-shrink-0 mt-1" size={20} />
@@ -1375,7 +1376,7 @@ const App = () => {
                      </div>
                      <div className="flex items-start gap-3 text-left bg-cyan-50 p-4 rounded-2xl">
                         <GraduationCap className="text-cyan-500 flex-shrink-0 mt-1" size={20} />
-                        <p><b className="text-slate-900">The Strategist:</b> Public Policy at UChicago & Ex-Bain Intern. I ensure Astra solves real problems for real people, securing our pilots with L&T and Avant-Garde.</p>
+                        <p><b className="text-slate-900">The Strategist:</b> Public Policy at UChicago & Ex-Bain Intern. I ensure Astra solves real manufacturing problems, securing pilots with L&T and Avant-Garde (precision manufacturing).</p>
                      </div>
                   </div>
                </div>
@@ -1388,7 +1389,7 @@ const App = () => {
                  poster="/api/placeholder/800/450"
                />
             </BrowserMockup>
-            <p className="text-center text-slate-500 text-base mt-6 font-medium">Meet the Founders: A candid intro to our vision.</p>
+            <p className="text-center text-slate-500 text-base mt-6 font-medium">Meet the Founders: A candid intro to our vision for autonomous manufacturing.</p>
           </div>
         </section>
 
@@ -1405,7 +1406,7 @@ const App = () => {
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 sm:mb-6">See <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-sky-400">Astra</span> in Action</h2>
               <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto px-2">
-                Watch how Astra autonomously builds a complete ERP system from a single prompt.
+                Watch how Astra autonomously builds a complete manufacturing ERP from a single prompt.
               </p>
             </div>
 
@@ -1461,7 +1462,7 @@ const App = () => {
               </div>
               <h2 className="text-5xl md:text-6xl font-black text-white mb-6">See <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-sky-400">Astra</span> in Action</h2>
               <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                A deep dive into how Astra connects disparate tools into a unified source of truth.
+                A deep dive into how Astra connects your shop floor systems into a unified manufacturing hub.
               </p>
             </div>
 
@@ -1487,11 +1488,11 @@ const App = () => {
               <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-violet-100 to-sky-100 border border-violet-200 text-violet-700 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 sm:mb-6">
                 <Zap size={16} className="sm:w-[18px] sm:h-[18px]" /> Why Astra?
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 sm:mb-6 px-2">The "Work Mess" is <span className="gradient-text">Solved.</span></h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 sm:mb-6 px-2">The Manufacturing <span className="gradient-text">Chaos Ends.</span></h2>
               <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed px-2">
-                Traditional ERPs sell you rigid containers you have to manually fill.
+                Traditional ERPs force you to adapt your shop floor to their rigid modules.
                 <br className="hidden sm:block"/>
-                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-sky-600">Astra builds the container around your actual work.</span>
+                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-sky-600">Astra adapts to your production reality.</span>
               </p>
             </div>
 
@@ -2021,7 +2022,7 @@ const App = () => {
                </div>
                <h3 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">Sophisticated <span className="gradient-text">Simplicity.</span></h3>
                <p className="text-xl text-slate-600 leading-relaxed">
-                 We've abstracted away the complexity of traditional enterprise software. Astra is not just a wrapper; it's a new operating system for business.
+                 We've abstracted away the complexity of traditional manufacturing software. Astra is not just a wrapper; it's a new operating system for the factory floor.
                </p>
             </div>
 
