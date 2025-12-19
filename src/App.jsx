@@ -1345,14 +1345,18 @@ const App = () => {
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-violet-500 to-sky-500 text-white font-bold text-sm mb-6">
                     <Code2 size={16} /> Technical Lead & Co-Founder
                   </div>
-                  <div className="space-y-4 text-slate-600 text-base leading-relaxed">
+                  <div className="space-y-3 text-slate-600 text-sm leading-relaxed">
                      <div className="flex items-start gap-3 text-left bg-violet-50 p-4 rounded-2xl">
-                        <Award className="text-violet-500 flex-shrink-0 mt-1" size={20} />
-                        <p><b className="text-slate-900">The Hacker:</b> I re-engineered a Siemens medical robot to fit the operating room. That's our philosophy for manufacturing software—we fit the system to your factory, not your factory to the system.</p>
+                        <Award className="text-violet-500 flex-shrink-0 mt-1" size={18} />
+                        <p>At Siemens Healthineers, I solved what everyone said was "impossible." Their ARTIS Pheno robot was too big for hospital ORs. So I redesigned it with a rotating dock and telescopic arm. The final design was 35% shorter but had a 25% larger scanning area. I fit the machine to the room, not the room to the machine.</p>
                      </div>
                      <div className="flex items-start gap-3 text-left bg-sky-50 p-4 rounded-2xl">
-                        <Rocket className="text-sky-500 flex-shrink-0 mt-1" size={20} />
-                        <p><b className="text-slate-900">The Builder:</b> I wrote 100% of Astra's codebase (Python, FastAPI, LangChain). I've previously built "VentraFlow" (AI-CFD) and "Kavach AI" (Fraud Detection).</p>
+                        <Code2 className="text-sky-500 flex-shrink-0 mt-1" size={18} />
+                        <p>I wrote 100% of Astra's code myself. Python, FastAPI, LangChain, React, TypeScript. No outsourcing, no contractors. I've also built VentraFlow (AI-powered CFD that turns 3D models into airflow simulations), ValveOps (RL agent for water networks), and Kavach AI (real-time fraud detection).</p>
+                     </div>
+                     <div className="flex items-start gap-3 text-left bg-emerald-50 p-4 rounded-2xl">
+                        <Rocket className="text-emerald-500 flex-shrink-0 mt-1" size={18} />
+                        <p>MS in Mechanical Engineering from Arizona State. Certified Solidworks Expert (CSWE). Top 10 out of 4,900 participants in Dassault Systèmes Aakruti. Mumbai Hacks 2025 finalist. Published 5 research papers in IOP and Springer. Active TiE Phoenix member.</p>
                      </div>
                   </div>
                </div>
@@ -1369,14 +1373,18 @@ const App = () => {
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 to-cyan-500 text-white font-bold text-sm mb-6">
                     <Briefcase size={16} /> Business Lead & Co-Founder
                   </div>
-                  <div className="space-y-4 text-slate-600 text-base leading-relaxed">
+                  <div className="space-y-3 text-slate-600 text-sm leading-relaxed">
                      <div className="flex items-start gap-3 text-left bg-sky-50 p-4 rounded-2xl">
-                        <Star className="text-sky-500 flex-shrink-0 mt-1" size={20} />
-                        <p><b className="text-slate-900">The Fixer:</b> When my university's grading system was broken, I didn't just complain—I led a student movement, went straight to the Vice Chancellor, and got the entire policy rewritten.</p>
+                        <Star className="text-sky-500 flex-shrink-0 mt-1" size={18} />
+                        <p>Our batch was the guinea pig class for a new economics program. By senior year, we had six-hour lectures, skipped weeks, and grades where 90% got you a B. I gathered every issue, wrote it up, and emailed it straight to the Vice Chancellor with department heads CC'd. Got called in, reset the grading scale, and the school fixed their processes for future batches.</p>
                      </div>
                      <div className="flex items-start gap-3 text-left bg-cyan-50 p-4 rounded-2xl">
-                        <GraduationCap className="text-cyan-500 flex-shrink-0 mt-1" size={20} />
-                        <p><b className="text-slate-900">The Strategist:</b> Public Policy at UChicago & Ex-Bain Intern. I ensure Astra solves real manufacturing problems, securing pilots with L&T and Avant-Garde (precision manufacturing).</p>
+                        <Briefcase className="text-cyan-500 flex-shrink-0 mt-1" size={18} />
+                        <p>Ex-Bain & Company analyst. Did financial modeling across 20+ companies for investment decisions. At Illinois Department of Labor, I processed 500+ wage claim cases. Built the data management system for a Chicago nonprofit that became their core operations platform.</p>
+                     </div>
+                     <div className="flex items-start gap-3 text-left bg-emerald-50 p-4 rounded-2xl">
+                        <GraduationCap className="text-emerald-500 flex-shrink-0 mt-1" size={18} />
+                        <p>Public Policy at UChicago Harris (3.72 GPA). IRM Level 1 & 2 certified (Institute of Risk Management, UK). Revived a 7-year defunct economics fest by bringing in Kiran Bedi as keynote and managing 10 sponsors. Securing pilots with L&T and Avant-Garde for manufacturing.</p>
                      </div>
                   </div>
                </div>
