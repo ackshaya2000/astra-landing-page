@@ -2,6 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Highlighter pen effect - like someone drew with a real highlighter */
+.highlight {
+  background: linear-gradient(104deg, rgba(255, 220, 100, 0) 0.9%, rgba(255, 220, 100, 0.7) 2.4%, rgba(255, 220, 100, 0.5) 5.8%, rgba(255, 220, 100, 0.4) 93%, rgba(255, 220, 100, 0.6) 96%, rgba(255, 220, 100, 0) 98%);
+  padding: 0.1em 0.2em;
+  margin: 0 -0.1em;
+  border-radius: 0.2em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.highlight-violet {
+  background: linear-gradient(104deg, rgba(196, 167, 255, 0) 0.9%, rgba(196, 167, 255, 0.7) 2.4%, rgba(196, 167, 255, 0.5) 5.8%, rgba(196, 167, 255, 0.4) 93%, rgba(196, 167, 255, 0.6) 96%, rgba(196, 167, 255, 0) 98%);
+  padding: 0.1em 0.2em;
+  margin: 0 -0.1em;
+  border-radius: 0.2em;
+}
+
+.highlight-sky {
+  background: linear-gradient(104deg, rgba(125, 211, 252, 0) 0.9%, rgba(125, 211, 252, 0.7) 2.4%, rgba(125, 211, 252, 0.5) 5.8%, rgba(125, 211, 252, 0.4) 93%, rgba(125, 211, 252, 0.6) 96%, rgba(125, 211, 252, 0) 98%);
+  padding: 0.1em 0.2em;
+  margin: 0 -0.1em;
+  border-radius: 0.2em;
+}
+
+.highlight-emerald {
+  background: linear-gradient(104deg, rgba(110, 231, 183, 0) 0.9%, rgba(110, 231, 183, 0.7) 2.4%, rgba(110, 231, 183, 0.5) 5.8%, rgba(110, 231, 183, 0.4) 93%, rgba(110, 231, 183, 0.6) 96%, rgba(110, 231, 183, 0) 98%);
+  padding: 0.1em 0.2em;
+  margin: 0 -0.1em;
+  border-radius: 0.2em;
+}
+
 /* Custom animation keyframes for the demo */
 @keyframes scan {
   0% {

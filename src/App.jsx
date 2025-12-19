@@ -1346,17 +1346,41 @@ const App = () => {
                     <Code2 size={16} /> Technical Lead & Co-Founder
                   </div>
                   <div className="space-y-3 text-slate-600 text-sm leading-relaxed">
-                     <div className="flex items-start gap-3 text-left bg-violet-50 p-4 rounded-2xl">
-                        <Award className="text-violet-500 flex-shrink-0 mt-1" size={18} />
-                        <p>At Siemens Healthineers, I solved what everyone said was "impossible." Their ARTIS Pheno robot was too big for hospital ORs. So I redesigned it with a rotating dock and telescopic arm. The final design was 35% shorter but had a 25% larger scanning area. I fit the machine to the room, not the room to the machine.</p>
+                     <div className="text-left bg-violet-50 p-4 rounded-2xl">
+                        <div className="flex items-center gap-2 mb-2">
+                           <Award className="text-violet-500" size={18} />
+                           <span className="font-bold text-slate-800">Siemens Healthineers</span>
+                        </div>
+                        <ul className="space-y-1.5 ml-1">
+                           <li>• Redesigned <span className="highlight-violet">ARTIS Pheno robot</span></li>
+                           <li>• Final design: <span className="highlight">35% shorter</span>, <span className="highlight">25% larger</span> scanning area</li>
+                           <li>• <span className="highlight-violet">Fit the machine to the room</span>, not the room to the machine</li>
+                        </ul>
                      </div>
-                     <div className="flex items-start gap-3 text-left bg-sky-50 p-4 rounded-2xl">
-                        <Code2 className="text-sky-500 flex-shrink-0 mt-1" size={18} />
-                        <p>I wrote 100% of Astra's code myself. Python, FastAPI, LangChain, React, TypeScript. No outsourcing, no contractors. I've also built VentraFlow (AI-powered CFD that turns 3D models into airflow simulations), ValveOps (RL agent for water networks), and Kavach AI (real-time fraud detection).</p>
+                     <div className="text-left bg-sky-50 p-4 rounded-2xl">
+                        <div className="flex items-center gap-2 mb-2">
+                           <Code2 className="text-sky-500" size={18} />
+                           <span className="font-bold text-slate-800">100% of Astra's Code</span>
+                        </div>
+                        <ul className="space-y-1.5 ml-1">
+                           <li>• <span className="highlight-sky">Python, FastAPI, LangChain, React, TypeScript</span></li>
+                           <li>• Built <span className="highlight">VentraFlow</span> (AI-powered CFD)</li>
+                           <li>• Built <span className="highlight">ValveOps</span> (RL agent for water networks)</li>
+                           <li>• Built <span className="highlight">Kavach AI</span> (real-time fraud detection)</li>
+                        </ul>
                      </div>
-                     <div className="flex items-start gap-3 text-left bg-emerald-50 p-4 rounded-2xl">
-                        <Rocket className="text-emerald-500 flex-shrink-0 mt-1" size={18} />
-                        <p>MS in Mechanical Engineering from Arizona State. Certified Solidworks Expert (CSWE). Top 10 out of 4,900 participants in Dassault Systèmes Aakruti. Mumbai Hacks 2025 finalist. Published 5 research papers in IOP and Springer. Active TiE Phoenix member.</p>
+                     <div className="text-left bg-emerald-50 p-4 rounded-2xl">
+                        <div className="flex items-center gap-2 mb-2">
+                           <Rocket className="text-emerald-500" size={18} />
+                           <span className="font-bold text-slate-800">Credentials</span>
+                        </div>
+                        <ul className="space-y-1.5 ml-1">
+                           <li>• <span className="highlight-emerald">MS Mechanical Engineering</span> - Arizona State</li>
+                           <li>• <span className="highlight">Certified Solidworks Expert (CSWE)</span></li>
+                           <li>• <span className="highlight-emerald">Top 10 / 4,900</span> - Dassault Systèmes Aakruti</li>
+                           <li>• <span className="highlight">Mumbai Hacks 2025</span> finalist</li>
+                           <li>• <span className="highlight-emerald">5 research papers</span> - IOP & Springer</li>
+                        </ul>
                      </div>
                   </div>
                </div>
@@ -1374,17 +1398,42 @@ const App = () => {
                     <Briefcase size={16} /> Business Lead & Co-Founder
                   </div>
                   <div className="space-y-3 text-slate-600 text-sm leading-relaxed">
-                     <div className="flex items-start gap-3 text-left bg-sky-50 p-4 rounded-2xl">
-                        <Star className="text-sky-500 flex-shrink-0 mt-1" size={18} />
-                        <p>Our batch was the guinea pig class for a new economics program. By senior year, we had six-hour lectures, skipped weeks, and grades where 90% got you a B. I gathered every issue, wrote it up, and emailed it straight to the Vice Chancellor with department heads CC'd. Got called in, reset the grading scale, and the school fixed their processes for future batches.</p>
+                     <div className="text-left bg-sky-50 p-4 rounded-2xl">
+                        <div className="flex items-center gap-2 mb-2">
+                           <Star className="text-sky-500" size={18} />
+                           <span className="font-bold text-slate-800">The Grading Policy Hack</span>
+                        </div>
+                        <ul className="space-y-1.5 ml-1">
+                           <li>• Guinea pig batch for new economics program</li>
+                           <li>• 6-hour lectures, broken grading (90% = B)</li>
+                           <li>• <span className="highlight-sky">Emailed Vice Chancellor directly</span>, dept heads CC'd</li>
+                           <li>• Got called in. <span className="highlight">Reset the grading scale</span></li>
+                        </ul>
                      </div>
-                     <div className="flex items-start gap-3 text-left bg-cyan-50 p-4 rounded-2xl">
-                        <Briefcase className="text-cyan-500 flex-shrink-0 mt-1" size={18} />
-                        <p>Ex-Bain & Company analyst. Did financial modeling across 20+ companies for investment decisions. At Illinois Department of Labor, I processed 500+ wage claim cases. Built the data management system for a Chicago nonprofit that became their core operations platform.</p>
+                     <div className="text-left bg-cyan-50 p-4 rounded-2xl">
+                        <div className="flex items-center gap-2 mb-2">
+                           <Briefcase className="text-cyan-500" size={18} />
+                           <span className="font-bold text-slate-800">Work Experience</span>
+                        </div>
+                        <ul className="space-y-1.5 ml-1">
+                           <li>• <span className="highlight-sky">Ex-Bain & Company</span> analyst</li>
+                           <li>• Financial modeling across <span className="highlight">20+ companies</span></li>
+                           <li>• Illinois Dept of Labor: <span className="highlight">500+ wage claim cases</span></li>
+                           <li>• Built <span className="highlight-sky">data management system</span> for Chicago nonprofit</li>
+                        </ul>
                      </div>
-                     <div className="flex items-start gap-3 text-left bg-emerald-50 p-4 rounded-2xl">
-                        <GraduationCap className="text-emerald-500 flex-shrink-0 mt-1" size={18} />
-                        <p>Public Policy at UChicago Harris (3.72 GPA). IRM Level 1 & 2 certified (Institute of Risk Management, UK). Revived a 7-year defunct economics fest by bringing in Kiran Bedi as keynote and managing 10 sponsors. Securing pilots with L&T and Avant-Garde for manufacturing.</p>
+                     <div className="text-left bg-emerald-50 p-4 rounded-2xl">
+                        <div className="flex items-center gap-2 mb-2">
+                           <GraduationCap className="text-emerald-500" size={18} />
+                           <span className="font-bold text-slate-800">Credentials</span>
+                        </div>
+                        <ul className="space-y-1.5 ml-1">
+                           <li>• <span className="highlight-emerald">UChicago Harris</span> - Public Policy (<span className="highlight">3.72 GPA</span>)</li>
+                           <li>• <span className="highlight-emerald">IRM Level 1 & 2</span> certified (UK)</li>
+                           <li>• Revived <span className="highlight">7-year defunct</span> economics fest</li>
+                           <li>• <span className="highlight-emerald">Kiran Bedi</span> as keynote, 10 sponsors</li>
+                           <li>• Pilots with <span className="highlight">L&T</span> and <span className="highlight">Avant-Garde</span></li>
+                        </ul>
                      </div>
                   </div>
                </div>
